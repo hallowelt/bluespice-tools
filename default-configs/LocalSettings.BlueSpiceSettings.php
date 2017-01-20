@@ -8,7 +8,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
-$settingsDir = "$IP/settings.d";
+if ( isset( $bsgSettingsDir ) ) {
+	$settingsDir = $bsgSettingsDir;
+}
+else {
+	$settingsDir = "$IP/settings.d";
+}
+
 $fileArray = array();
 
 if ( $dirHandle = opendir( $settingsDir ) ) {
