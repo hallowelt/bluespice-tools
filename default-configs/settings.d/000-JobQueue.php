@@ -1,0 +1,3 @@
+<?php
+
+$wgJobRunRate = 0;
