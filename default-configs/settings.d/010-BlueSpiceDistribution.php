@@ -16,7 +16,6 @@ $wgUserMergeUnmergeable = array();
 require_once "$IP/extensions/EditNotify/EditNotify.php";
 require_once "$IP/extensions/MobileFrontend/MobileFrontend.php";
 $wgMFAutodetectMobileView = true;
-$wgMFEnableDesktopResources = true;
 require_once "$IP/extensions/BlueSpiceEchoConnector/BlueSpiceEchoConnector.php";
 require_once "$IP/extensions/BlueSpiceDistributionConnector/BlueSpiceDistributionConnector.php";
 require_once "$IP/extensions/BlueSpiceUserMergeConnector/BlueSpiceUserMergeConnector.php";
