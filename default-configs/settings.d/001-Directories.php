@@ -1,5 +1,7 @@
 <?php
 
 $wgCacheDirectory = "/opt/bluespice/cache";
-$wgTmpDirectory = "/opt/bluespice/tmp";
-$wgWidgetsCompileDir = "/opt/bluespice/widgets";
+# This often creates problems. Only if really needed.
+#$wgTmpDirectory = "/opt/bluespice/tmp";
+# Only if Widgets is enabled.
+#$wgWidgetsCompileDir = "/opt/bluespice/widgets";
