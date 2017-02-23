@@ -9,4 +9,3 @@ wfLoadExtension( 'Nuke' );
 wfLoadExtension( 'ParserFunctions' );
 wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
-wfLoadExtension( 'TitleBlacklist' );
