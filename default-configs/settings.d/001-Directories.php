@@ -1,7 +1,15 @@
 <?php
 
-$wgCacheDirectory = "/opt/bluespice/cache";
-# This often creates problems. Only if really needed.
+// Cache directory.
+// If this is not set database will be used.
+// Must be writable by webserver.
+$wgCacheDirectory = "$IP/cache";
+
+// This often causes problems. Only if really needed.
+// Must be writable by webserver.
 #$wgTmpDirectory = "/opt/bluespice/tmp";
-# Only if Widgets is enabled.
+
+// Only if Widgets is enabled.
+// If this is not set $IP/extensions/Widgets/compiled_templates will be used.
+// Must be writable by webserver.
 #$wgWidgetsCompileDir = "/opt/bluespice/widgets";
