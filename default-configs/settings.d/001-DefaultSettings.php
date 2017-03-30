@@ -11,7 +11,6 @@ $wgExternalLinkTarget = '_blank';
 $GLOBALS['wgNamespacesWithSubpages'][NS_MAIN] = true;
 $GLOBALS['wgApiFrameOptions'] = 'SAMEORIGIN';
 $GLOBALS['wgRSSUrlWhitelist'] = array(
-	"http://blog.blue-spice.org/feed/",
 	"http://blog.bluespice.com/feed/",
 	"http://blog.hallowelt.com/feed/",
 );
