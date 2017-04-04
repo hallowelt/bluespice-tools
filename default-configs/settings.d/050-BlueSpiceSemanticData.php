@@ -35,3 +35,7 @@ $GLOBALS[ 'bssSpecialProperties' ] = array(
 $GLOBALS[ 'sespUseAsFixedTables' ] = true;
 
 $GLOBALS[ 'wgSESPExcludeBots' ] = true;
+
+$GLOBALS["wgAutoloadClasses"]["SMW\Test\QueryPrinterRegistryTestCase"] = __DIR__."/extensions/SemanticMediaWiki/tests/phpunit/QueryPrinterRegistryTestCase.php";
+$GLOBALS["wgAutoloadClasses"]["SMW\Test\QueryPrinterTestCase"] = __DIR__."/extensions/SemanticMediaWiki/tests/phpunit/QueryPrinterTestCase.php";
+
