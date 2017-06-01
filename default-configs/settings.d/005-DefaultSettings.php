@@ -13,6 +13,8 @@ $GLOBALS['wgApiFrameOptions'] = 'SAMEORIGIN';
 $GLOBALS['wgRSSUrlWhitelist'] = array(
 	"http://blog.bluespice.com/feed/",
 	"http://blog.hallowelt.com/feed/",
+	"https://blog.bluespice.com/feed/",
+	"https://blog.hallowelt.com/feed/",
 );
 $GLOBALS['wgExternalLinkTarget'] = '_blank';
 $GLOBALS['wgCapitalLinkOverrides'][ NS_FILE ] = false;
