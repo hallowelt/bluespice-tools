@@ -3,13 +3,12 @@
 require_once "$IP/extensions/SemanticMediaWiki/SemanticMediaWiki.php";
 require_once "$IP/extensions/ExternalData/ExternalData.php";
 require_once "$IP/extensions/PageSchemas/PageSchemas.php";
-require_once "$IP/extensions/SemanticFormsInputs/SemanticFormsInputs.php";
 require_once "$IP/extensions/SemanticInternalObjects/SemanticInternalObjects.php";
 require_once "$IP/extensions/OpenLayers/OpenLayers.php";
 require_once "$IP/extensions/SemanticCompoundQueries/SemanticCompoundQueries.php";
 require_once "$IP/extensions/SemanticExtraSpecialProperties/vendor/autoload.php";
 require_once "$IP/extensions/SemanticExtraSpecialProperties/SemanticExtraSpecialProperties.php";
-require_once "$IP/extensions/SemanticForms/SemanticForms.php";
+require_once "$IP/extensions/PageForms/PageForms.php";
 require_once "$IP/extensions/SemanticResultFormats/vendor/autoload.php";
 require_once "$IP/extensions/SemanticResultFormats/SemanticResultFormats.php";
 require_once "$IP/extensions/BlueSpiceSMWConnector/BlueSpiceSMWConnector.php";
