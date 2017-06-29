@@ -1,2 +1,2 @@
 <?php
-require_once("$IP/BlueSpiceInsertTemplate/InsertTemplate.setup.php");
+require_once("$IP/extensions/BlueSpiceInsertTemplate/InsertTemplate.setup.php");
