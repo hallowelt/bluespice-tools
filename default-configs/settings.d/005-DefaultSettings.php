@@ -6,6 +6,7 @@ $wgDefaultUserOptions['timecorrection'] = 'ZoneInfo|' . (date("I") ? 120 : 60) .
 $wgUrlProtocols[] = 'file://';
 $wgNamespacesWithSubpages[NS_MAIN] = true;
 $wgExternalLinkTarget = '_blank';
+$wgBlockDisablesLogin = true;
 
 //Default MediaWiki settings needed for BlueSpice
 $GLOBALS['wgNamespacesWithSubpages'][NS_MAIN] = true;
