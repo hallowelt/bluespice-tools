@@ -3,6 +3,7 @@
 require_once "$IP/extensions/NativeSvgHandler/NativeSvgHandler.php";
 require_once "$IP/extensions/DrawioEditor/DrawioEditor.php";
 $wgDrawioEditorImageType = 'png';
+wfLoadExtension( 'BlueSpiceDrawioConnector' );
 require_once "$IP/extensions/Duplicator/Duplicator.php";
 require_once "$IP/extensions/HeaderTabs/HeaderTabs.php";
 require_once "$IP/extensions/MultimediaViewer/MultimediaViewer.php";
