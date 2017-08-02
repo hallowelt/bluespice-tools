@@ -22,5 +22,5 @@ require_once "$IP/extensions/BlueSpiceEchoConnector/BlueSpiceEchoConnector.php";
 require_once "$IP/extensions/BlueSpiceDistributionConnector/BlueSpiceDistributionConnector.php";
 require_once "$IP/extensions/BlueSpiceUserMergeConnector/BlueSpiceUserMergeConnector.php";
 wfLoadExtension( "BlueSpiceEditNotifyConnector" );
-require_once "$IP/extensions/UserFunctions/UserFunctions.php"
-wfLoadExtension('FilterSpecialPages');
+require_once "$IP/extensions/UserFunctions/UserFunctions.php";
+wfLoadExtension( 'FilterSpecialPages' );
