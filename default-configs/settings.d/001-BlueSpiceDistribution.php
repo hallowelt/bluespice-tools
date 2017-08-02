@@ -1,5 +1,7 @@
 <?php
 
+require_once "$IP/extensions/Arrays/Arrays.php";
+require_once "$IP/extensions/Variables/Variables.php";
 require_once "$IP/extensions/CategoryTree/CategoryTree.php";
 require_once "$IP/extensions/DynamicPageList/DynamicPageList.php";
 require_once "$IP/extensions/HitCounters/HitCounters.php";
@@ -20,7 +22,5 @@ require_once "$IP/extensions/BlueSpiceEchoConnector/BlueSpiceEchoConnector.php";
 require_once "$IP/extensions/BlueSpiceDistributionConnector/BlueSpiceDistributionConnector.php";
 require_once "$IP/extensions/BlueSpiceUserMergeConnector/BlueSpiceUserMergeConnector.php";
 wfLoadExtension( "BlueSpiceEditNotifyConnector" );
-$pathUserFunctions = "$IP/extensions/UserFunctions/UserFunctions.php";
-if ( file_exists( $pathUserFunctions ) ) {
-  require_once $pathUserFunctions;
-}
+require_once "$IP/extensions/UserFunctions/UserFunctions.php"
+wfLoadExtension('FilterSpecialPages');
