@@ -6,6 +6,7 @@ $wgDefaultUserOptions['timecorrection'] = 'ZoneInfo|' . (date("I") ? 120 : 60) .
 $wgUrlProtocols[] = 'file://';
 $wgNamespacesWithSubpages[NS_MAIN] = true;
 $wgExternalLinkTarget = '_blank';
+$wgBlockDisablesLogin = true;
 
 //Default MediaWiki settings needed for BlueSpice
 $GLOBALS['wgNamespacesWithSubpages'][NS_MAIN] = true;
@@ -13,6 +14,8 @@ $GLOBALS['wgApiFrameOptions'] = 'SAMEORIGIN';
 $GLOBALS['wgRSSUrlWhitelist'] = array(
 	"http://blog.bluespice.com/feed/",
 	"http://blog.hallowelt.com/feed/",
+	"https://blog.bluespice.com/feed/",
+	"https://blog.hallowelt.com/feed/",
 );
 $GLOBALS['wgExternalLinkTarget'] = '_blank';
 $GLOBALS['wgCapitalLinkOverrides'][ NS_FILE ] = false;

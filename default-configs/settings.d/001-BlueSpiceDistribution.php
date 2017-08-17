@@ -20,3 +20,7 @@ require_once "$IP/extensions/BlueSpiceEchoConnector/BlueSpiceEchoConnector.php";
 require_once "$IP/extensions/BlueSpiceDistributionConnector/BlueSpiceDistributionConnector.php";
 require_once "$IP/extensions/BlueSpiceUserMergeConnector/BlueSpiceUserMergeConnector.php";
 wfLoadExtension( "BlueSpiceEditNotifyConnector" );
+$pathUserFunctions = "$IP/extensions/UserFunctions/UserFunctions.php";
+if ( file_exists( $pathUserFunctions ) ) {
+  require_once $pathUserFunctions;
+}
