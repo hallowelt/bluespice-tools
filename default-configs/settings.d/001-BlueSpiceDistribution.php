@@ -6,7 +6,7 @@ require_once "$IP/extensions/HitCounters/HitCounters.php";
 require_once "$IP/extensions/ImageMapEdit/ImageMapEdit.php";
 require_once "$IP/extensions/Lockdown/Lockdown.php";
 require_once "$IP/extensions/Quiz/Quiz.php";
-wfLoadExtension('RSS');
+require_once "$IP/extensions/RSS/RSS.php";
 require_once "$IP/extensions/Echo/Echo.php";
 require_once "$IP/extensions/TitleKey/TitleKey.php";
 require_once "$IP/extensions/EmbedVideo/EmbedVideo.php";
