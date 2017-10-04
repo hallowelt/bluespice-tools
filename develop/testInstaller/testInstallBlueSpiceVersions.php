@@ -6,14 +6,14 @@ use GitWrapper\GitWrapper;
 
 $wrapper = new GitWrapper();
 
-$destBasePath = "/tmp";
+$destBasePath = "/media/build/tests";
 
 $branches = ["REL1_27", "master"];
 
 $mysqlHost = "localhost";
 $mysqlDB = "mediawiki";
 $mysqlUser = "root";
-$mysqlPass = "";
+$mysqlPass = "Medienwerkstatt2015";
 $wikiName = "BlueSpice";
 $wikiAdmin = "WikiSysop";
 $wikiAdminPass = "dslkjfhw7i3rzcbinrth1x2";
@@ -41,12 +41,15 @@ foreach($branches as $branch){
     if ($mysqli->connect_errno) {
         die("Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
     }
+    $mysqlDB = "bluespice_" . $key . "_" . strtolower($branch);
     if (!$mysqli->query("DROP DATABASE IF EXISTS $mysqlDB") || !$mysqli->query("CREATE DATABASE $mysqlDB")) {
       die("Database creation failed: (" . $mysqli->errno . ") " . $mysqli->error);
     }
-    $instCmd = "php maintenance/install.php --dbname $mysqlDB --dbuser $mysqlUser --dbpass $mysqlPass --pass $wikiAdminPass $wikiName $wikiAdmin";
+    $instCmd = "php maintenance/install.php --dbname $mysqlDB --dbuser $mysqlUser --dbpass $mysqlPass --scriptpath /$mysqlDB --pass $wikiAdminPass $wikiName $wikiAdmin";
     shell_exec("cd " . $destPath . " && " . $instCmd);
     shell_exec("cd " . $destPath . " && php maintenance/update.php --quick");
+    shell_exec("cd " . $destPath . " && php tests/phpunit/phpunit.php --group BlueSpice");
+    shell_exec("chmod 777 -R " . $destPath . "/cache");
     echo "\n---------------- done $destPath ------------------\n";
   }
 }
