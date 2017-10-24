@@ -3,7 +3,9 @@
 // Cache directory.
 // If this is not set database will be used.
 // Must be writable by webserver.
-$wgCacheDirectory = "$IP/cache";
+if ( !isset( $wgCacheDirectory ) ) {
+  $wgCacheDirectory = "$IP/cache";
+}
 
 // This often causes problems. Only if really needed.
 // Must be writable by webserver.
