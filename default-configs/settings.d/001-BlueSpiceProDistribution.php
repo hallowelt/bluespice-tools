@@ -12,4 +12,3 @@ require_once "$IP/extensions/Scribunto/Scribunto.php";
 $wgScribuntoDefaultEngine = 'luastandalone';
 require_once "$IP/extensions/Widgets/Widgets.php";
 wfLoadExtension( 'NSFileRepo' );
-require_once "$IP/extensions/BlueSpiceNSFileRepoConnector/BlueSpiceNSFileRepoConnector.php";
