@@ -8,10 +8,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
-if ( file_exists( "$IP/LocalSettings.local.php") ) {
-	require_once "$IP/LocalSettings.local.php";	
-}
-
 if ( isset( $bsgSettingsDir ) ) {
 	$settingsDir = $bsgSettingsDir;
 }
@@ -19,6 +15,19 @@ else {
 	$settingsDir = "$IP/settings.d";
 }
 
+$loaded = [];
+
 foreach ( glob( $settingsDir . "/*.php" ) as $conffile ) {
-	include_once $conffile;
+
+	$searchString = preg_replace( '/\\.[^.\\s]{3,4}$/', '', $conffile ) . ".local.php";
+
+	if ( file_exists( $searchString ) ) {
+		$conffile = $searchString;
+		$loaded[] = $searchString;
+	}
+
+	if ( !in_array( $conffile, $loaded) ) {
+		echo $conffile;
+	}
+
 }
