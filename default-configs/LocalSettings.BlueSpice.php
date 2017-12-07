@@ -27,7 +27,7 @@ foreach ( glob( $settingsDir . "/*.php" ) as $conffile ) {
 	}
 
 	if ( !in_array( $conffile, $loaded) ) {
-		echo $conffile;
+		require_once $conffile;
 	}
 
 }
