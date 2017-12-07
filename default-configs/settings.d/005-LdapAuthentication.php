@@ -16,7 +16,7 @@ elseif ( PHP_SAPI == 'cli' ) {
 	return;
 }
 
-elseif ( file_exists( "$IP/LocalSettings.ldap.php" ) ) {
+elseif ( !file_exists( "$IP/LocalSettings.ldap.php" ) ) {
 	return;
 }
 
