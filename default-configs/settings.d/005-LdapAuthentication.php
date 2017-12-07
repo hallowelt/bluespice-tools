@@ -8,8 +8,18 @@ if ( !isset( $bsgLDAPLocalUsers ) ) {
 	$bsgLDAPLocalUsers[] = 'Wikisysop';
 }
 
-if ( !( isset( $_POST['wpName'] ) && !in_array( $_POST['wpName'], $bsgLDAPLocalUsers ) ) &&
-     file_exists( "$IP/LocalSettings.ldap.php" ) &&
-	 PHP_SAPI != 'cli' ) {
+if ( isset( $_POST['wpName'] ) && in_array( $_POST['wpName'], $bsgLDAPLocalUsers ) ) {
+	return;
+}
+
+elseif ( PHP_SAPI == 'cli' ) {
+	return;
+}
+
+elseif ( file_exists( "$IP/LocalSettings.ldap.php" ) ) {
+	return;
+}
+
+else {
 	require_once "$IP/LocalSettings.ldap.php";
 }
