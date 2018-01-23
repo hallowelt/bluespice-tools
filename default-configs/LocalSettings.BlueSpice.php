@@ -8,8 +8,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
     exit;
 }
 
-if ( file_exists( __DIR__ . "/LocalSettings.local.php" ) ) {
-	require_once __DIR__ . "/LocalSettings.local.php";
+if ( file_exists( "$IP/LocalSettings.local.php" ) ) {
+	require_once "$IP/LocalSettings.local.php";
 }
 
 if ( isset( $bsgSettingsDir ) ) {
