@@ -1,12 +1,7 @@
 <?php
 
 /* Disable possibility to change password
- * Maybe needed with ldap
- *
- * Core-Hack needed:
- * extensions/BlueSpiceExtensions/UserManager/resources/bluespice.userManager.js
- * Uncomment line 22 'editpassword'
- *
+ * Maybe needed with ldap or other SSO installations
  */
 
 function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
@@ -29,14 +24,22 @@ function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 
 $wgPasswordResetRoutes = false;
 
-$wgHooks['SpecialPage_initList'][]='disableSomeSpecialPages';
-function disableSomeSpecialPages(&$list) {
-  unset($list['ChangeCredentials']);
+$wgHooks['SpecialPage_initList'][] = function ( &$list ) {
+  unset( $list['ChangeCredentials'] );
   return true;
-}
+};
 
-$wgHooks['GetPreferences'][] = 'RemovePasswordChangeLink';
-function RemovePasswordChangeLink ( $user, &$preferences ) {
-  unset($preferences['password']);
+$wgHooks['GetPreferences'][] = function ( $user, &$preferences ) {
+  unset( $preferences['password']) ;
+  return true;
+};
+
+$wgExtensionFunctions[] = function() {
+  global $wgHooks;
+  $wgHooks['MakeGlobalVariablesScript'][] = 'ChangeUserManagerList';
+};
+
+function ChangeUserManagerList ( &$vars, $out ) {
+  $vars['bsTaskAPIPermissions']['usermanager']['editPassword'] = false;
   return true;
 }
