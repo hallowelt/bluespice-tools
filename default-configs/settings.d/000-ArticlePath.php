@@ -2,7 +2,7 @@
 
 /*
  *
- * Make MediaWiki rechable via ShortUrl /wiki/
+ * Make MediaWiki reachable via ShortUrl /wiki/
  * Documentation: https://www.mediawiki.org/wiki/Manual:Short_URL
  *
  * For apache integration please add the following rewrite rule to your vhosts:
