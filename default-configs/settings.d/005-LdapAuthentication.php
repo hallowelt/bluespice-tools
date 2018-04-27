@@ -21,5 +21,6 @@ elseif ( !file_exists( "$IP/LocalSettings.ldap.php" ) ) {
 }
 
 else {
+	$wgDisableAuthManager = true;
 	require_once "$IP/LocalSettings.ldap.php";
 }
