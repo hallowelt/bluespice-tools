@@ -323,6 +323,7 @@ function checkSessionSavePath() {
 function checkINIvalues( $iniOptions ) {
 
 	$sReturn = '';
+	$iniOptionChecked = [];
 
 	foreach ( $iniOptions as $value ) {
 
@@ -358,8 +359,10 @@ function checkINIvalues( $iniOptions ) {
 			}
 		}
 
-		if ( $iniOptionChecked[$iniOption] != true ) {
+		if ( isset( $iniOptionChecked[$iniOption] ) && $iniOptionChecked[$iniOption] == true ) {
 			$sReturn .= "..... <span class=\"ok\">OK</span><br/>";
+		} else {
+			$sReturn .= "..... <span class=\"warn\">FAILED</span><br/>";
 		}
 
 	}
