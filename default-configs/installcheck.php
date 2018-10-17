@@ -244,8 +244,8 @@ function checkPHPversion( $phpversion ) {
 	if ( version_compare( $phpversion, $cfgPHPversion['min'], '<') ) {
 		$sResult .= "<span class=\"fail\">FAILED!</span> This version is not compatible with BlueSpice. Please upgrade to version >= {$cfgPHPversion['min']}.";
 	}
-	elseif ( version_compare( $phpversion, $cfgPHPversion['opt'], '<') ) {
-		$sResult .= "<span class=\"warn\">WARNING!</span> You should upgrade to version >= {$cfgPHPversion['opt']} for best performance.";
+	elseif ( version_compare( $phpversion, $cfgPHPversion['opt'], '!=') ) {
+		$sResult .= "<span class=\"warn\">WARNING!</span> You should use version {$cfgPHPversion['opt']} for full compatibility.";
 	}
 	else {
 		$sResult .= "<span class=\"ok\">OK</span>";
