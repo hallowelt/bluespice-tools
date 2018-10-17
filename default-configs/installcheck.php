@@ -352,7 +352,7 @@ function checkINIvalues( $iniOptions ) {
 			}
 		}
 		elseif ( $checkOperator == ">=" ) {
-			if ( $iniValue < $checkValue || in_array( [ '0', '1' ] ) ) {
+			if ( $iniValue < $checkValue ) {
 				$sReturn .= "..... {$helptext}<br/>";
 				$iniOptionChecked[$iniOption] = true;
 			}
