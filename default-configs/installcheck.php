@@ -27,10 +27,10 @@
  */
 
 // MediaWiki version
-$cfgMWversion = "1.27";
+$cfgMWversion = "1.31";
 
 // PHP version
-$cfgPHPversion['min'] = '5.5.9';
+$cfgPHPversion['min'] = '7.0';
 $cfgPHPversion['opt'] = '7.0';
 
 // PHP extensions to check
@@ -48,13 +48,12 @@ $cfgRequiredExtensions[] = [ "zip",            "<span class=\"warn\">WARNING!</s
 $cfgRequiredExtensions[] = [ "Zend OPcache",   "<span class=\"warn\">WARNING!</span> This extension is needed if you want to use a fast bytecode cache." ];
 
 // PHP ini values#
-$cfgINIoptions[] = [ "date.timezone",       "!=", "Off",  "<span class=\"warn\">WARNING!</span> You should set this to your local timezone." ];
-$cfgINIoptions[] = [ "memory_limit",        ">=", "128M", "<span class=\"warn\">WARNING!</span> You should increase this value to 128M or higher." ];
+#$cfgINIoptions[] = [ "date.timezone",       "!=", "Off",  "<span class=\"warn\">WARNING!</span> You should set this to your local timezone." ];
+$cfgINIoptions[] = [ "memory_limit",        ">=", "128",  "<span class=\"warn\">WARNING!</span> You should increase this value to 128M or higher." ];
 $cfgINIoptions[] = [ "max_execution_time",  ">=", "120",  "<span class=\"warn\">WARNING!</span> You should increase this value to 120 or higher." ];
-$cfgINIoptions[] = [ "post_max_size",       ">=", "32M",  "<span class=\"warn\">WARNING!</span> You should increase this value to 32M or higher." ];
-$cfgINIoptions[] = [ "upload_max_filesize", ">=", "32M",  "<span class=\"warn\">WARNING!</span> You should increase this value to 32M or higher." ];
-$cfgINIoptions[] = [ "memory_limit",        ">=", "256M", "<span class=\"warn\">WARNING!</span> You should increase this value to 256M or higher." ];
-$cfgINIoptions[] = [ "register_globals",    "==", "0",    "<span class=\"fail\">FAILED!</span> Disable this option for security reasons." ];
+$cfgINIoptions[] = [ "post_max_size",       ">=", "32",   "<span class=\"warn\">WARNING!</span> You should increase this value to 32M or higher." ];
+$cfgINIoptions[] = [ "upload_max_filesize", ">=", "32",   "<span class=\"warn\">WARNING!</span> You should increase this value to 32M or higher." ];
+$cfgINIoptions[] = [ "memory_limit",        ">=", "256",  "<span class=\"warn\">WARNING!</span> You should increase this value to 256M or higher." ];
 
 // Writable folders
 $cfgWritableFolders[] = [ "/cache",                                 "<span class=\"fail\">FAILED!</span>" ];
@@ -64,7 +63,7 @@ $cfgWritableFolders[] = [ "/extensions/BlueSpiceFoundation/data",   "<span class
 $cfgWritableFolders[] = [ "/extensions/Widgets/compiled_templates", "<span class=\"warn\">WARNING!</span> This folder is only needed for BlueSpice pro" ];
 
 // Files to check
-$cfgFilesToCheck[] = [ "/extensions/BlueSpiceExtensions/BlueSpiceExtensions.local.php", "<span class=\"warn\">WARNING!</span> BlueSpice will load it's default extensions." ];
+#$cfgFilesToCheck[] = [ "/extensions/BlueSpiceExtensions/BlueSpiceExtensions.local.php", "<span class=\"warn\">WARNING!</span> BlueSpice will load it's default extensions." ];
 
 ?>
 <!DOCTYPE html>
@@ -198,11 +197,13 @@ $cfgFilesToCheck[] = [ "/extensions/BlueSpiceExtensions/BlueSpiceExtensions.loca
 				<p class="infobox"><a href="https://en.help.bluespice.com/wiki/Setup:Installation_Manual/Security_Settings/File_System_Permissions" target="_blank"><b>&#9432;</b>&nbsp;&nbsp;&nbsp;For more information refer to the related article in the BlueSpice Helpdesk</a></p>
 			</div>
 
+<!--
 			<div class="section">
 				<h2>Checking files</h2>
 				<p><?php echo checkFiles( $cfgFilesToCheck );?></p>
 				<p class="infobox"><a href="https://en.help.bluespice.com/wiki/Setup:Installation_Manual/Advanced/Activation_and_deactivation_of_BlueSpice-extensions" target="_blank"><b>&#9432;</b>&nbsp;&nbsp;&nbsp;For more information refer to the related article in the BlueSpice Helpdesk</a></p>
 			</div>
+//-->
 
 			<div class="section">
 				<h2>Checking SMTP connection</h2>
@@ -328,7 +329,10 @@ function checkINIvalues( $iniOptions ) {
 
 		list( $iniOption, $checkOperator, $checkValue, $helptext ) = $value;
 
+		$checkValue = preg_replace("/[^0-9]/", "", $checkValue );
+
 		$iniValue = ini_get( $iniOption );
+		$iniValue = preg_replace("/[^0-9]/", "", $checkValue );
 
 		if ( empty( $iniValue ) ) {
 			$iniValue = "0";
@@ -478,3 +482,4 @@ function checkSSO() {
 	return $sReturn;
 
 }
+
