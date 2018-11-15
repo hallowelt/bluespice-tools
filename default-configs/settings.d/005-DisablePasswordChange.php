@@ -40,6 +40,9 @@ $wgExtensionFunctions[] = function() {
 };
 
 function ChangeUserManagerList ( &$vars, $out ) {
-  $vars['bsTaskAPIPermissions']['usermanager']['editPassword'] = false;
+  // BS <= 2.27.x
+  // $vars['bsTaskAPIPermissions']['usermanager']['editPassword'] = false;
+  // BS => 3.0
+  $vars['bsTaskAPIPermissions']->usermanager['editPassword'] = false;
   return true;
 }
