@@ -8,7 +8,7 @@
  * For apache integration please add the following rewrite rule to your vhosts:
  *
  * RewriteEngine On
- * RewriteRule ^/?wiki(/.*)?$ %{DOCUMENT_ROOT}/index.php [L]
+ * RewriteRule ^/?wiki(/.*)?$ %{DOCUMENT_ROOT}/w/index.php [L]
  *
  * For IIS integration please add the following rewrite ruke to you web.config:
  *
@@ -19,7 +19,7 @@
  *             <rules>
  *                 <rule name="WikiShortURL">
  *                     <match url="^wiki/(.*)$" />
- *                     <action type="Rewrite" url="/index.php?title={UrlEncode:{R:1}}" />
+ *                     <action type="Rewrite" url="/w/index.php?title={UrlEncode:{R:1}}" />
  *                 </rule>
  *             </rules>
  *         </rewrite>
