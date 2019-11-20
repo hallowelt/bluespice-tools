@@ -8,6 +8,7 @@
  * For apache integration please add the following rewrite rule to your vhosts:
  *
  * RewriteEngine On
+ * RewriteRule ^/*$ %{DOCUMENT_ROOT}/w/index.php [L]
  * RewriteRule ^/?wiki(/.*)?$ %{DOCUMENT_ROOT}/w/index.php [L]
  *
  * For IIS integration please add the following rewrite ruke to you web.config:
