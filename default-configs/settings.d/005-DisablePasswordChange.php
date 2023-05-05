@@ -43,7 +43,7 @@ function ChangeUserManagerList ( &$vars, $out ) {
   // BS <= 2.27.x
   // $vars['bsTaskAPIPermissions']['usermanager']['editPassword'] = false;
   // BS => 3.0
-  if ( isset( $vars['bsTaskAPIPermissions'] ) {
+  if ( isset( $vars['bsTaskAPIPermissions'] ) ) {
     $vars['bsTaskAPIPermissions']->usermanager['editPassword'] = false;
   }
   return true;
