@@ -2,7 +2,7 @@
 
 wfLoadExtension( 'PdfHandler' );
 
-$wgPdfProcessor = '/usr/local/bin/gs';
+$wgPdfProcessor = '/usr/bin/gs';
 $wgPdfPostProcessor = $wgImageMagickConvertCommand;
 $wgPdfInfo = '/usr/bin/pdfinfo';
 $wgPdftoText = '/usr/bin/pdftotext';
