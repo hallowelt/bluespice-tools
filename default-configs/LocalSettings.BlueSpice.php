@@ -5,7 +5,7 @@
 //
 
 if ( !defined( 'MEDIAWIKI' ) ) {
-    exit;
+	exit;
 }
 
 if ( file_exists( "$IP/LocalSettings.local.php" ) ) {
@@ -19,19 +19,15 @@ else {
 	$settingsDir = "$IP/settings.d";
 }
 
-$loaded = [];
-
 foreach ( glob( $settingsDir . "/*.php" ) as $conffile ) {
 
-	$searchString = preg_replace( '/\\.[^.\\s]{3,4}$/', '', $conffile ) . ".local.php";
+	$localConfFile = preg_replace( '/\\.[^.\\s]{3,4}$/', '', $conffile ) . ".local.php";
 
-	if ( file_exists( $searchString ) ) {
-		$conffile = $searchString;
-		$loaded[] = $searchString;
+	if ( file_exists( $localConfFile ) ){
+		include_once $localConfFile;
 	}
-
-	if ( !in_array( $conffile, $loaded) ) {
-		require_once $conffile;
+	else {
+		include_once $conffile;
 	}
 
 }
