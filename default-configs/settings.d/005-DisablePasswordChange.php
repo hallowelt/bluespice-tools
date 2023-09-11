@@ -22,7 +22,10 @@ function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
 
 }
 
-$wgPasswordResetRoutes = false;
+$wgPasswordResetRoutes = [
+	'username' => false,
+	'email' => false,
+];
 
 $wgHooks['SpecialPage_initList'][] = function ( &$list ) {
   unset( $list['ChangeCredentials'] );
